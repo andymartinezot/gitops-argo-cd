@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+  namespace: dev
+data:
+  index.html: |
+    <html>
+      <body>
+        <pre>
+        Hello, world!
+        Version: 1.0.0
+        </pre>
+      </body>
+    </html>
