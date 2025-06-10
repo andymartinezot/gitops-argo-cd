@@ -69,17 +69,21 @@ This repository demonstrates a GitOps workflow using Argo CD and Minikube. It im
 
 ### Accessing Services on Mac
 
-When running on macOS, the Minikube IP might not be directly reachable. To access the nginx service, use:
+When running on macOS, the Minikube IP might not be directly reachable. To access the services, use:
 
 ```bash
-# Get the service URL
-minikube service nginx --url
+# Get the Argo CD server URL
+minikube service argocd-server --url -n argocd
+# This will output something like: https://127.0.0.1:XXXXX
+# Use this URL to access the Argo CD UI in your browser
 
+# Get the nginx service URL
+minikube service nginx --url
 # This will output something like: http://127.0.0.1:XXXXX
-# Use this URL to access the service in your browser
+# Use this URL to access the nginx service in your browser
 ```
 
-This command will provide you with a local URL that you can use to access the service through port forwarding.
+These commands will provide you with local URLs that you can use to access the services through port forwarding.
 
 ## How It Works
 
