@@ -1,0 +1,7 @@
+# kustomize/overlays/dev/replica-count.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1  # Dev environment uses 1 replica

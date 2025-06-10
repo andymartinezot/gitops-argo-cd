@@ -1,0 +1,21 @@
+# applications/qat/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-qat
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/andymartinezot/gitops-argo-cd.git
+    targetRevision: HEAD
+    path: kustomize/overlays/qat
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: qat
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

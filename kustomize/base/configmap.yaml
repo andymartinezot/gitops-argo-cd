@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+data:
+  index.html: PLACEHOLDER
+
+#This will be overridden by the configmap in the overlay.

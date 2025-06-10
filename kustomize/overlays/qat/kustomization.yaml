@@ -1,0 +1,9 @@
+# kustomize/overlays/qat/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: qat
+bases:
+  - ../../base
+patches:
+  - path: replica-count.yaml
+  - path: configmap.yaml
