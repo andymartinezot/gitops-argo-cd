@@ -77,13 +77,19 @@ minikube service argocd-server --url -n argocd
 # This will output something like: https://127.0.0.1:XXXXX
 # Use this URL to access the Argo CD UI in your browser
 
-# Get the nginx service URL
-minikube service nginx --url
-# This will output something like: http://127.0.0.1:XXXXX
-# Use this URL to access the nginx service in your browser
+# Get the nginx service URL for different environments
+# For development environment
+minikube service nginx --url -n dev
+# For QA/testing environment
+minikube service nginx --url -n qat
+# For production environment
+minikube service nginx --url -n prd
+
+# Each command will output something like: http://127.0.0.1:XXXXX
+# Use the appropriate URL to access the nginx service in your browser
 ```
 
-These commands will provide you with local URLs that you can use to access the services through port forwarding.
+These commands will provide you with local URLs that you can use to access the services through port forwarding. Make sure to use the appropriate namespace (-n) flag for the environment you want to access.
 
 ## How It Works
 
